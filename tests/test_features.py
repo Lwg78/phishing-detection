@@ -16,7 +16,7 @@ from src.feature_engineering import extract_url_features
 from src.models.predict_model import PhishingPredictor
 
 
-logger = get_logger("Trainer")
+# logger = get_logger("Trainer")
 
 def load_data():
     logger.info(f"Connecting to database at {PROJECT_ROOT}...")
