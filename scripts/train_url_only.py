@@ -95,8 +95,8 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
     X = df[available_features]
     y = df['label'] if 'label' in df.columns else df['Label']
     
-    print(f"⚙️ Filtering for {len(available_feats)} URL-specific features...")
-    X = df[available_feats]
+    print(f"⚙️ Filtering for {len(available_features)} URL-specific features...")
+    X = df[available_features]
     y = df['label']
 
     check_class_balance(y)
