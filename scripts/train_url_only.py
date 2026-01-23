@@ -13,11 +13,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from src.config import RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
-from src.data_loader import load_data
-from src.preprocessing import prepare_training_data, clean_data, check_class_balance
+from src.data.data_loader import load_data
+from src.data.preprocessing import prepare_training_data, clean_data, check_class_balance
 from src.feature_engineering import engineer_features
 from src.models.base_model import get_model
-from src.evaluation import (
+from src.models.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
     plot_roc_curve, save_results
 )
