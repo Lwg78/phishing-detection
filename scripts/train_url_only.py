@@ -71,6 +71,9 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
         
         # Sanitize (Fill NaNs)
         final_df = final_df.fillna(0)
+
+        # ✅ Update the main 'df' variable so Step 4 sees the new features!
+        df = final_df
         
     except Exception as e:
         print(f"❌ Error during feature extraction: {e}")
@@ -92,12 +95,18 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
     
     # Keep only URL features + label
     available_features = [f for f in url_features if f in df.columns]
-    X = df[available_features]
-    y = df['label'] if 'label' in df.columns else df['Label']
+
+    # ✅ Check if we actually found features before proceeding
+    if not available_features:
+        print("❌ Error: No URL features found in DataFrame. Feature extraction might have failed.")
+        return
     
     print(f"⚙️ Filtering for {len(available_features)} URL-specific features...")
+
+    # ✅ Removed the duplicate lines and the typo 'available_featuress'
     X = df[available_features]
-    y = df['label']
+    y = df['label'] if 'label' in df.columns else df['Label']
+
 
     check_class_balance(y)
     
@@ -121,6 +130,13 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
     print("-" * 40)
     
     y_pred = detector.predict(X_test)
+
+    # ✅ Calculate probabilities for ROC Curve (needed for Step 8)
+    if hasattr(detector, "predict_proba"):
+        y_prob = detector.predict_proba(X_test)[:, 1]
+    else:
+        y_prob = y_pred  # Fallback for models without probability (like SVM sometimes)
+        
     metrics = calculate_metrics(y_test, y_pred)
     print(f"   [URL-Only] Accuracy: {metrics['accuracy']:.2%}")
     
@@ -163,8 +179,8 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
     print(f"✓ Can now predict without visiting webpages")
     print(f"✓ Use: python scripts/predict.py --url <url> --model {model_name}_url_only\n")
     
-    return model, metrics
-
+    # ✅ Return 'detector' instead of undefined 'model'
+    return detector, metrics
 
 def main():
     parser = argparse.ArgumentParser(
