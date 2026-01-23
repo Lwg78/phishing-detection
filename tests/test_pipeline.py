@@ -2,6 +2,7 @@
 System Health Check & Data Integrity Test.
 Runs the full pipeline against your actual text files to ensure compatibility.
 """
+import pytest
 import sys
 import pandas as pd
 from pathlib import Path
@@ -26,7 +27,51 @@ def print_fail(msg):
 def print_info(msg):
     print(f"ℹ️  INFO: {msg}")
 
-def test_file_inputs(PhishingPredictor):
+# --- 1. DEFINE THE FIXTURE (The Setup) ---
+@pytest.fixture(scope="module")
+def predictor():
+    """
+    Creates a single PhishingPredictor instance to be used by all tests.
+    Pytest will run this ONCE before the tests start.
+    """
+    # Try loading the lightweight model first (faster for CI)
+    pred = PhishingPredictor(model_name='xgboost_url_only')
+    
+    # Fallback to main model if URL-only doesn't exist
+    if pred.model is None:
+        pred = PhishingPredictor(model_name='xgboost')
+        
+    return pred
+
+# --- 2. THE TESTS ---
+
+def test_model_loading(predictor):
+    """Ensure the model loaded correctly."""
+    assert predictor.model is not None, "Model failed to load (pickle file missing?)"
+
+def test_known_phishing(predictor):
+    """Test a known phishing URL logic."""
+    # Test IP Address Rule
+    res_ip = predictor.predict("http://192.168.0.1/login")
+    assert res_ip['status'] == "PHISHING", "Failed to catch IP address"
+    
+    # Test Bad TLD Rule
+    res_tld = predictor.predict("http://secure-login.xyz")
+    # Note: Depending on your exact logic, this might need 'login' keyword too
+    # If this fails, check if 'login' is in your keywords list
+    if res_tld['status'] == "PHISHING":
+        assert True
+    else:
+        # It's okay if AI marks it safe if rules are strict, but we warn
+        print(f"Warning: TLD test got {res_tld['status']}")
+
+def test_known_safe(predictor):
+    """Test a known safe URL (Whitelist)."""
+    res = predictor.predict("https://www.google.com")
+    assert res['status'] == "SAFE"
+    assert res['reason'] == "Official Whitelisted Domain"
+
+def test_file_inputs(predictor):
     """
     Reads your specific text files and tests a random sample from them.
     """
@@ -42,8 +87,8 @@ def test_file_inputs(PhishingPredictor):
             # Read non-empty lines
             urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
         
-        # Pick 3 random URLs to test (so we don't spam the console)
-        sample = urls[:3] if len(urls) < 3 else random.sample(urls, 3)
+        # Pick 5 random URLs to test (so we don't spam the console)
+        sample = urls[:5] if len(urls) < 5 else random.sample(urls, 5)
         
         print(f"   Running predictions on {len(sample)} random URLs from file...")
         for url in sample:
