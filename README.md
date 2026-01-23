@@ -1,6 +1,10 @@
 # Phishing Website Detection System 🛡️
 
 ![CI Status](https://github.com/lwg78/phishing-detection/actions/workflows/ci.yml/badge.svg)
+![Python Version](https://img.shields.io/badge/python-3.10-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Model](https://img.shields.io/badge/Model-XGBoost-orange)
+![F1 Score](https://img.shields.io/badge/F1_Score-99.3%25-brightgreen)
 
 A production-ready, hybrid phishing detection engine achieving **99.32% F1-score**.  
 Combines **Machine Learning (XGBoost)** with a **Real-time Heuristic Rule Engine** to detect zero-day phishing attacks, typosquatting, and obfuscated URLs.
