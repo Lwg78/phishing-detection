@@ -1,0 +1,12 @@
+BEST MODEL INFORMATION
+============================================================
+
+Model: XGBoost
+
+PERFORMANCE METRICS
+------------------------------------------------------------
+Accuracy:  0.9906
+Precision: 0.9912
+Recall:    0.9951
+F1-Score:  0.9932
+ROC-AUC:   0.9982

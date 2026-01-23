@@ -1,0 +1,31 @@
+url,status,confidence,reason,risk_score
+http://google.com,SAFE,100.0,Official Whitelisted Domain,0.0
+https://facebook.com,SAFE,100.0,Official Whitelisted Domain,0.0
+https://microsoft.com,SAFE,100.0,Official Whitelisted Domain,0.0
+http://paypal-verify-account.tk,PHISHING,100.0,Suspicious TLD (.tk) + Sensitive Keyword,1.0
+http://192.168.0.1/admin,PHISHING,100.0,Suspicious Raw IP Address,0.0
+http://amazon.com.verify-login.xyz,PHISHING,100.0,Suspicious TLD (.xyz) + Sensitive Keyword,1.0
+https://github.com,SAFE,83.66035461425781,AI Pattern Analysis,0.0
+http://secure-banking-login.ml,PHISHING,100.0,Suspicious TLD (.ml) + Sensitive Keyword,0.6
+http://bit.ly/abc123,SAFE,98.03272247314453,AI Pattern Analysis (Resolved from Shortener),0.0
+http://apple.com,SAFE,100.0,Official Whitelisted Domain,0.0
+http://www.phishtank.org,SAFE,88.38529968261719,AI Pattern Analysis,0.0
+http://login-verify-secure.ga/account.php,PHISHING,100.0,Suspicious TLD (.ga) + Sensitive Keyword,0.6
+https://netflix.com,SAFE,100.0,Official Whitelisted Domain,0.0
+http://suspicious-long-url-with-many-hyphens-and-parameters.xyz/login?user=admin&pass=123,PHISHING,100.0,Suspicious TLD (.xyz) + Sensitive Keyword,0.6
+https://www.cltibank.com.sg/,PHISHING,100.0,High-Risk Brand Impersonation (Score: 0.90),0.9
+https://www.police.gov.sg/Join-Us/Police-Officer,SAFE,100.0,Official Whitelisted Domain,0.0
+https://techassessment.core.windows.net/aiap22-group-exercise-data/phishing.url.db,SAFE,95.33796691894531,AI Pattern Analysis,0.0
+https://github.com/AISG-AIAP/AIAP-22-Group-Exercise-3D/tree/main,SAFE,98.32220458984375,AI Pattern Analysis,0.0
+https://gemini.google.com/app/6df4728a05227b0d?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=podcasts_bkws&utm_source=google&utm_medium=cpc&utm_campaign=2024enSG_gemfeb&pt=9008&mt=8&ct=podcasts_bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=22915896200&gbraid=0AAAAApk5BhnZfdTDkQ952PrZXdRPJo6Jm&gclid=Cj0KCQjw3OjGBhDYARIsADd-uX42UOP8s7Dx5m2Ob_wh_IKbqrRdH4sYP4kzNMSZjQ44AY3CasTubUkaApkPEALw_wcB&pli=1,SAFE,100.0,Official Whitelisted Domain,0.0
+https://www.dbs.com.login,PHISHING,100.0,High-Risk Brand Impersonation (Score: 1.00),1.0
+https://www.citibank.com.sg,SAFE,100.0,Official Whitelisted Domain,0.0
+https://www.cpf.com.gov.login,PHISHING,100.0,High-Risk Brand Impersonation (Score: 1.00),1.0
+https://www.cpg.com.sg/login,PHISHING,100.0,High-Risk Brand Impersonation (Score: 0.90),0.9
+https://www.gpf.gov.sg/,SAFE,100.0,Official Whitelisted Domain,0.0
+https://www.singpass.gov.sg/,SAFE,100.0,Official Whitelisted Domain,0.0
+https://www.cpf.gov.sg.login/,PHISHING,100.0,High-Risk Brand Impersonation (Score: 1.00),1.0
+https://tinyurl.com/bestlpe,SAFE,95.00614929199219,AI Pattern Analysis (Resolved from Shortener),0.0
+https://tinyurl.com/%20bestlpe,SAFE,77.27555084228516,AI Pattern Analysis,0.0
+https://www.moh-gov-sg.com,PHISHING,100.0,High-Risk Brand Impersonation (Score: 1.00),1.0
+https://www.singpass.gov.sg.login-verify.com,PHISHING,100.0,High-Risk Brand Impersonation (Score: 1.00),1.0

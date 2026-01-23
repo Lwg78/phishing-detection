@@ -1,0 +1,47 @@
+{
+  "description": "Official whitelist for Phishing Detection System.",
+  
+  "safe_extensions": [".gov.sg", ".edu.sg", ".mil.sg"],
+
+  "exact_matches": {
+    "banks": [
+      "dbs.com", "dbs.com.sg", "posb.com.sg", 
+      "uob.com.sg", "uobgroup.com", 
+      "ocbc.com", "plus.ocbc.com",
+      "citibank.com.sg", "citibank.com", 
+      "sc.com", "sc.com.sg", 
+      "maybank2u.com.sg", "maybank.com", 
+      "hsbc.com.sg", "hsbc.com"
+    ],
+    "government": [
+      "singpass.gov.sg", 
+      "cpf.gov.sg", 
+      "iras.gov.sg", 
+      "moh.gov.sg",
+      "onemap.gov.sg"
+    ],
+    "tech_services": [
+      "google.com", "google.com.sg", "accounts.google.com",
+      "microsoft.com", "login.live.com", "azure.com",
+      "apple.com", "icloud.com",
+      "facebook.com", "instagram.com",
+      "amazon.com", "amazon.sg",
+      "paypal.com",
+      "netflix.com",
+      "whatsapp.com"
+    ],
+    "telecom": [
+      "singtel.com", 
+      "starhub.com", 
+      "m1.com.sg"
+    ]
+  },
+
+  "sensitive_brands_for_typo_check": [
+    "dbs", "posb", "uob", "ocbc", "citibank", "maybank", "hsbc", 
+    "standardchartered", 
+    "singpass", "cpf", "iras", "moh", "ica", "hdb", "lta", "mom", "gov", "police", "spf",
+    "google", "microsoft", "apple", "facebook", "whatsapp", "instagram",
+    "amazon", "paypal", "netflix", "singtel", "starhub"
+  ]
+}
