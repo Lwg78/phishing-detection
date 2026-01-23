@@ -15,6 +15,7 @@ from sklearn.model_selection import train_test_split
 from src.config import RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
 from src.data.data_loader import load_data
 from src.data.preprocessing import clean_data, check_class_balance
+from src.feature_engineering import extract_url_features
 from src.models.base_model import get_model
 from src.models.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
@@ -47,7 +48,7 @@ def train_url_only_pipeline(model_name: str, save_model: bool = True):
     
     # Check if features already extracted
     if 'UTS' not in df.columns:
-        df = engineer_features(df)
+        df = extract_url_features(df)
     
     # 4. Select ONLY URL Features (Drop content-based features)
     # This list must match what 'extract_url_features' produces in feature_engineering.py
