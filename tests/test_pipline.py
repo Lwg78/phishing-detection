@@ -26,7 +26,7 @@ def print_fail(msg):
 def print_info(msg):
     print(f"ℹ️  INFO: {msg}")
 
-def test_file_inputs(predictor):
+def test_file_inputs(PhishingPredictor):
     """
     Reads your specific text files and tests a random sample from them.
     """
