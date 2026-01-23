@@ -92,9 +92,10 @@ def plot_confusion_matrix(y_true: np.ndarray, y_pred: np.ndarray,
     
     plt.tight_layout()
     
+    # ✅ FIX: Use 'output_path' (the argument name), NOT 'save_path'
     if output_path:
-        output_path = Path(output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        # Ensure directory exists
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"✓ Confusion matrix saved to {output_path}")
     
@@ -133,12 +134,11 @@ def plot_roc_curve(y_true: np.ndarray, y_prob: np.ndarray,
     plt.tight_layout()
     
     if output_path:
-        output_path = Path(output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"✓ ROC curve saved to {output_path}")
     
-    plt.show()
+    plt.close()
 
 
 def compare_models(results: Dict[str, Dict[str, float]],
@@ -176,12 +176,11 @@ def compare_models(results: Dict[str, Dict[str, float]],
     plt.tight_layout()
     
     if output_path:
-        output_path = Path(output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"✓ Comparison plot saved to {output_path}")
     
-    plt.show()
+    plt.close()
     
     return df
 
