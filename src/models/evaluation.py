@@ -186,7 +186,7 @@ def compare_models(results: Dict[str, Dict[str, float]],
     return df
 
 
-def save_results(results: Dict, filename: str = "model_performance.csv"):
+def save_results(results: Dict, output_path: str = "model_performance.csv"):
     """
     Save results to CSV.
     
@@ -194,15 +194,20 @@ def save_results(results: Dict, filename: str = "model_performance.csv"):
         results: Dictionary of model results
         output_path: Path to save CSV
     """
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
     df = pd.DataFrame([results])
-    output_path = OUTPUT_DIR / filename
     
     # Append if exists, else write new
     if output_path.exists():
+        # Append without header if file exists
         df.to_csv(output_path, mode='a', header=False, index=False)
     else:
+        # Write with header if new file
         df.to_csv(output_path, index=False)
     
-    print(f"✓ Metrics saved to {output_path}")
+    print(f"✓ Metrics result saved to {output_path}")
     
     return df
+
