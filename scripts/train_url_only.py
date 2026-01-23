@@ -15,7 +15,6 @@ from sklearn.model_selection import train_test_split
 from src.config import RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
 from src.data.data_loader import load_data
 from src.data.preprocessing import clean_data, check_class_balance
-from src.feature_engineering import engineer_features
 from src.models.base_model import get_model
 from src.models.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
