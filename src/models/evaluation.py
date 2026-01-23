@@ -104,7 +104,7 @@ def plot_confusion_matrix(y_true: np.ndarray, y_pred: np.ndarray,
     if output_path:
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(output_path, bbox_inches='tight', dpi=300)
-        print(f"✓ Confusion matrix saved to {save_path}")
+        print(f"✓ Confusion matrix saved to {output_path}")
     
     plt.close() # Close to free memory
 
