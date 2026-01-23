@@ -40,7 +40,6 @@ phishing_detection/
 │   ├── raw/                   # Original SQLite database or CSVs
 │   ├── processed/             # Cleaned training data
 │   └── outputs/               # Prediction results (CSVs)
-
 ├── models/               
 │   ├── xgboost.pkl            # 🧠 The Main AI Model (Production)
 │   └── xgboost_url_only.pkl   # Lightweight Model (CLI fallback)
