@@ -11,7 +11,7 @@ from typing import Optional, Callable, Any
 from functools import wraps
 from src.config import WHITELIST_PATH
 
-def setup_logging(log_name='phishing_detection'):
+def setup_logging(log_name='phishing_detection', log_dir=None):
     """
     Setup logging configuration.
     
