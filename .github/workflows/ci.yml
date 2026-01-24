@@ -46,3 +46,9 @@ jobs:
     - name: Smoke Test (Training Script)
       run: |
         python scripts/train_url_only.py --help
+        python scripts/train_individual.py --help
+
+    # 7. Predict Test: Ensure Predict Script Runs without Crashing
+    - name: Smoke Test (Training Script)
+      run: |
+        python scripts/predict.py --help
