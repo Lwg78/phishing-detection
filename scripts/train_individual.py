@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from src.config import MODEL_DIR, RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
-from src.data_loader import load_data, save_processed_data
+from src.data.data_loader import load_data, save_processed_data
 from src.data.preprocessing import clean_data, prepare_features, check_class_balance
 from src.feature_engineering import engineer_features
 from src.models.base_model import get_model
