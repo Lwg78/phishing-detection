@@ -16,11 +16,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from src.config import MODEL_DIR, RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
-from src.data.data_loader import load_data, save_processed_data
-from src.data.preprocessing import prepare_training_data, clean_data, prepare_features, check_class_balance
+from src.data_loader import load_data, save_processed_data
+from src.data.preprocessing import clean_data, prepare_features, check_class_balance
 from src.feature_engineering import engineer_features
 from src.models.base_model import get_model
-from src.models.evaluation import (
+from src.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
     plot_roc_curve, save_results
 )
@@ -66,9 +66,10 @@ def train_pipeline(model_name: str, save_model: bool = True):
     X, y = prepare_features(df)
     check_class_balance(y)
 
+    # Remove step 5 for prepare_training_data missing in preprocessing
     # 5. Prepare X, y
-    print("⚙️ Preparing Training Data...")
-    X, y = prepare_training_data(df, target_col='label')
+    # print("⚙️ Preparing Training Data...")
+    #X, y = prepare_training_data(df, target_col='label')
     
     # 6. Train-test split
     print("\nSTEP 5: Train-Test Split")
