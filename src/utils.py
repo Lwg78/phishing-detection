@@ -21,11 +21,11 @@ def setup_logging(log_name='phishing_detection'):
     """
     # Create logger
     logger = logging.getLogger('phishing_detection')
-    logger.setLevel(level)
+    logger.setLevel(eval)
     
     # Console handler
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(level)
+    console_handler.setLevel(eval)
     console_formatter = logging.Formatter(
         '%(asctime)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
