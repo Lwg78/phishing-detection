@@ -52,10 +52,11 @@ def train_pipeline(model_name: str, save_model: bool = True):
     print("-" * 40)
     df = clean_data(df)
     
+    # DELETE THIS STEP NOT USING
     # 3. Feature engineering
-    print("\nSTEP 3: Feature Engineering")
-    print("-" * 40)
-    df = get_brand_features(df)
+    # print("\nSTEP 3: Feature Engineering")
+    # print("-" * 40)
+    # df = get_brand_features(df) # ← DELETE THIS LINE
     
     # Save processed data
     save_processed_data(df)
