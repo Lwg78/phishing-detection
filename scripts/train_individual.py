@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 from src.config import MODEL_DIR, RANDOM_STATE, TEST_SIZE, OUTPUT_DIR
 from src.data.data_loader import load_data, save_processed_data
 from src.data.preprocessing import clean_data, prepare_features, check_class_balance
-from src.feature_engineering import engineer_features
+from src.feature_engineering import get_brand_features
 from src.models.base_model import get_model
 from src.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
@@ -55,7 +55,7 @@ def train_pipeline(model_name: str, save_model: bool = True):
     # 3. Feature engineering
     print("\nSTEP 3: Feature Engineering")
     print("-" * 40)
-    df = engineer_features(df)
+    df = get_brand_features(df)
     
     # Save processed data
     save_processed_data(df)
