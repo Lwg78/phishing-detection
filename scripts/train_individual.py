@@ -20,7 +20,7 @@ from src.data.data_loader import load_data, save_processed_data
 from src.data.preprocessing import clean_data, prepare_features, check_class_balance
 from src.feature_engineering import get_brand_features
 from src.models.base_model import get_model
-from src.evaluation import (
+from src.models.evaluation import (
     calculate_metrics, print_metrics, plot_confusion_matrix,
     plot_roc_curve, save_results
 )
