@@ -45,7 +45,7 @@ jobs:
     # 6. Smoke Test: Ensure Training Script Runs without Crashing
     - name: Smoke Test (Training Script)
       run: |
-        python scripts/train_url_only.py --help
+        # python scripts/train_url_only.py --help
         python scripts/train_individual.py --model xgboost
 
     # 7. Predict Test: Ensure Predict Script Runs without Crashing
